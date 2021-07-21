@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/clients/:id',
     name: 'Clients',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Clients.vue')
+    component: () => import(/* webpackChunkName: "clients" */ '../views/Clients.vue')
   },
   {
     path: '/proveidors',
