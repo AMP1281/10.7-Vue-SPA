@@ -1,6 +1,6 @@
 <template>
 
-          <b-navbar toggleable="md" type="light" variant="info"> <!-- toggleable = responsive en md -->
+    <b-navbar toggleable="md" type="light" variant="info"> <!-- toggleable = responsive en md -->
 
           <b-container> <!--centra-->
 
