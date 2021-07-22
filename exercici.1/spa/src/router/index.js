@@ -29,7 +29,7 @@ const routes = [
     path: '/botiga',
     name: 'Botiga',
     component: () => import(/* webpackChunkName: "botiga" */ '../views/Botiga.vue')
-  }
+  },
 ]
 
 const router = new VueRouter({
