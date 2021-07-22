@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 
+//Lazy loading todo menos home (only loads what you need when you need it)
 
 Vue.use(VueRouter)
 
@@ -8,7 +10,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+    component: Home
   },
   {
     path: '/clients/:id',

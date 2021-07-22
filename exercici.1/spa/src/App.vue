@@ -3,7 +3,7 @@
 
       <Navegacion/>
 
-      <router-view/> <!--Carga las vistas donde estas (botiga, clients..) dinamicamente aquí-->
+      <router-view/> <!--Carga las vistas (botiga, clients..) dinamicamente aqui-->
 
   </div>
 </template>

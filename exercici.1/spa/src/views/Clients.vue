@@ -1,23 +1,26 @@
 <template>
+
   <div>
+
     <h1>Clients</h1>
 
-    <router-link :to="{name:'Clients', params:{id: item}}"
+        <router-link :to="{name:'Clients', params:{id: item}}"
 
-      v-for="(item, index) of clientesArreglo" :key="index">
+          v-for="(item, index) of clientesArreglo" :key="index">
 
-      <button>cliente {{item}}</button>
+          <button>cliente {{item}}</button>
 
-    </router-link>
+        </router-link>
 
 
-    <ClienteComp/>
+        <ClienteComp/>
 
 <!--     <button @click="home">Home</button>
     <button @click="anterior">Anterior</button>
     <button @click="siguiente">Siguiente</button> -->
 
   </div>
+
 </template>
 
 <script>
