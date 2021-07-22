@@ -2,10 +2,14 @@
   <div>
     <h1>Clients</h1>
 
-    <router-link :to="{name:'Clients', params:{id: item}}" 
+    <router-link :to="{name:'Clients', params:{id: item}}"
+
       v-for="(item, index) of clientesArreglo" :key="index">
+
       <button>cliente {{item}}</button>
+
     </router-link>
+
 
     <ClienteComp/>
 

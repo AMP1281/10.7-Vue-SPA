@@ -1,6 +1,9 @@
 import Vue from 'vue'
+//App
 import App from './App.vue'
+//Vue Router
 import router from './router'
+//Vuex
 import store from './store'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
