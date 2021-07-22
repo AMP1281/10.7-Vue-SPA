@@ -25,7 +25,7 @@
 
       </b-navbar>
 
-      <router-view/>
+      <router-view/> <!--carga las vistas dinamicamente aquí-->
 
   </div>
 </template>
