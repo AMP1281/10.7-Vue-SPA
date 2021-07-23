@@ -10,7 +10,10 @@
 </template>
 
 <script>
+
+
 export default {
-    name:'ClienteComp'
+    name:'ClienteComp',
 }
+
 </script>
