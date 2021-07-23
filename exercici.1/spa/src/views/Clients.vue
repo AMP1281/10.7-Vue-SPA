@@ -14,7 +14,7 @@
     
       <ClienteComp/>
 
-      <ClienteDetalles/>
+
 
     </b-container>
 
@@ -25,7 +25,7 @@
 <script>
 import ButtonAnterior from '@/components/ButtonAnterior.vue'
 import ClienteComp from '@/components/ClienteComp.vue'
-import ClienteDetalles from '@/components/ClienteDetalles.vue'
+
 
 export default {
   name:'Clients',
@@ -33,7 +33,7 @@ export default {
   components: {
     ClienteComp,
     ButtonAnterior,
-    ClienteDetalles
+
   },
 
   methods:{

@@ -1,13 +1,19 @@
 <template>
+
     <div>
-        <p>The client is:{{this.$route.params.id}}</p>
 
-        <li class="col-lg-4 mt-4 d-flex align-items-stretch justify-content-center" 
-                    v-for="(item, index) in encontrarCliente()" :key="index">
+        <b-container>
 
-                    <h5>{{item.nomClient}}</h5>
-        </li>
+        <!-- <p>The client is:{{this.$route.params.id}}</p> -->
+        <div class="card text-center pt-4 mt-5">
+        <p>Nom client: {{encontrarCliente.nomClient}}</p>
+        <p>E.mail client: {{encontrarCliente.mailClient}}</p>
+        <p>Telefon client: {{encontrarCliente.telClient}}</p>
+        </div>
+        </b-container>
+
     </div>
+
 </template>
 
 <script>
@@ -22,13 +28,11 @@ export default{
     },
     computed:{
 
-        computed:{
         ...mapState(['clientesArreglo']),
         ...mapGetters(['getCliente']),
-        },
 
         encontrarCliente(){
-            return this.$store.getters['getCliente'](this.clienteId);
+            return this.$store.getters['getCliente'](this.clienteId)
         },
 
     }

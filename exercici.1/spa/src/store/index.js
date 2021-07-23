@@ -27,8 +27,8 @@ export default new Vuex.Store({
       ]
   },
   getters:{
-    getCliente: (state) => (id) => {
-      return state.clientesArreglo.find(client => client.idClient === id)
+    getCliente: (state) => (idClient) => {
+      return state.clientesArreglo.find(client => client.idClient === idClient)
     },
   },
   mutations: {
