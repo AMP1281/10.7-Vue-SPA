@@ -13,7 +13,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/clients/:id',
+    path: '/clients/:id',//:hace la ruta dinamica
     name: 'Clients',
     component: () => import(/* webpackChunkName: "clients" */ '../views/Clients.vue')
   },
