@@ -1,5 +1,5 @@
 
-<template>
+/* <template>
     <div>
         <h1>Detalles</h1>
 
@@ -41,4 +41,4 @@ export default {
   },
 }
 
-</script>
+</script> */
