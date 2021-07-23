@@ -2,8 +2,11 @@
 
   <div>
 
-    <h1>Clients</h1>
+    <b-container>
 
+    <h1>Clients</h1>
+        
+        <!--con : delante de to pasamos una variable-->
         <router-link :to="{name:'Clients', params:{id: item}}"
 
           v-for="(item, index) of clientesArreglo" :key="index">
@@ -13,11 +16,13 @@
         </router-link>
 
 
-        <ClienteComp/>
+        <ClienteComp/> <!--importamos ClienteComp-->
 
-<!--     <button @click="home">Home</button>
+    <!--     <button @click="home">Home</button>
     <button @click="anterior">Anterior</button>
     <button @click="siguiente">Siguiente</button> -->
+
+    </b-container>
 
   </div>
 
@@ -33,8 +38,8 @@ export default {
     ClienteComp
   },
   data(){
-    return{
-      clientesArreglo:[1, 2, 3]
+    return {
+      clientesArreglo: [1, 2, 3]
     }
   },
   methods:{

@@ -11,7 +11,7 @@
                     <b-navbar-nav style="width: 100%" class="justify-content-center fs-5">
 
                         <b-nav-item class="mx-4" to="/" exact>Home</b-nav-item> <!--b-nav-item actua como router-link(router link es como a)-->
-                        <b-nav-item class="mx-4" to="/clients/:id">Clients</b-nav-item>
+                        <b-nav-item class="mx-4" :to="{name:'Clients'}">Clients</b-nav-item>
                         <b-nav-item class="mx-4" to="/proveidors">Proveidors</b-nav-item>
                         <b-nav-item class="mx-4" to="/magatzem">Magatzem</b-nav-item>
                         <b-nav-item class="mx-4" to="/botiga">Botiga</b-nav-item>

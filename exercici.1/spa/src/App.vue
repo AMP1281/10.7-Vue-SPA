@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-      <Navegacion/>
+      <TheNavigation/>
 
       <router-view/> <!--Carga las vistas (botiga, clients..) dinamicamente aqui-->
 
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import Navegacion from '@/components/Navegacion';
+import TheNavigation from '@/components/TheNavigation';
 
 
 export default{
   name:'App',
   components:{
-    Navegacion
+    TheNavigation
   }
 };
 
