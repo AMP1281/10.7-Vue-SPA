@@ -9,9 +9,11 @@
         <!--con : delante de to pasamos una variable-->
         <router-link :to="{name:'Clients', params:{id: item}}"
 
-          v-for="(item, index) of clientesArreglo" :key="index">
+          v-for="(item, index) in clientesArreglo" :key="index">
 
-          <button>cliente {{item}}</button>
+
+
+          <li><button>Client: {{item}}</button></li>
 
         </router-link>
 
@@ -39,7 +41,7 @@ export default {
   },
   data(){
     return {
-      clientesArreglo: [1, 2, 3]
+      clientesArreglo: ["Carme","Rosa", "Anna"]
     }
   },
   methods:{
