@@ -3,7 +3,7 @@
   <div>
     <b-container>
 
-    <h1>Botiga</h1>
+    <h1 class="mt-4">Botiga</h1>
 
     </b-container>
     
