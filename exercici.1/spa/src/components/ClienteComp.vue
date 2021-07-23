@@ -1,10 +1,10 @@
-<template>
+ <template>
     <div>
 
         <ul class="row list-unstyled">
 
               <li class="col-md-4 mt-4 d-flex align-items-stretch justify-content-center" 
-              v-for="(item, index) in clientesArreglo" :key="index">
+              v-for="item in clientesArreglo" :key="item.idClient">
 
                   <div class="card text-center w-100">
                     <h5 class="card-header py-4">
@@ -12,8 +12,11 @@
 
                     <div class="card-body py-5">
 
-                      <p class="card-text"><b-button @click="mostrarDetall(data.idClient)">Detalls</b-button></p>
-
+                      <p class="card-text">
+                            <router-link :to="{name:'Details',params:{id:item.idClient}}">
+                            <b-button>Detalls</b-button>
+                            </router-link>
+                        </p>
                     </div>
 
                   </div>
@@ -30,39 +33,22 @@
 
 <script>
 
+import {mapState} from 'vuex'
 
 export default {
+
     name:'ClienteComp',
 
-    data(){
-    return {
-      clientesArreglo: [
-      {
-        nomClient:"Carme",
-        mailClient:"carme@email.com",
-        telClient: 658111111,
-        idClient: 1
-      },
-      {
-        nomClient:"Rosa",
-        mailClient:"rosa@email.com",
-        telClient: 658222222,
-        idClient: 2
-      },
-      {
-        nomClient:"Anna",
-        mailClient:"anna@email.com",
-        telClient: 658333333,
-        idClient: 3
-      }
-      ]
-    }
-  },
-  methods:{
-    mostrarDetall(){
-        this.$router.push({name:'ClienteDetalles'})
+    methods:{
+        mostrarDetall(){
+            this.$router.push({name:'ClienteDetalles'})
+        },
     },
-  }
+
+    computed:{
+        ...mapState(['clientesArreglo']),
+    }
 }
 
 </script>
+ */

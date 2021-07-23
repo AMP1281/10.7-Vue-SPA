@@ -4,11 +4,17 @@
 
     <b-container>
 
-    <h1 class="mt-4">Clients</h1>
-  
-    <ClienteComp/>
+      <ButtonAnterior/>
+
+        
+
+      <h1 class="mt-2">Clients</h1>
+
+
     
-    <ClienteDetalles/>
+      <ClienteComp/>
+
+      <ClienteDetalles/>
 
     </b-container>
 
@@ -17,14 +23,17 @@
 </template>
 
 <script>
-
+import ButtonAnterior from '@/components/ButtonAnterior.vue'
 import ClienteComp from '@/components/ClienteComp.vue'
+import ClienteDetalles from '@/components/ClienteDetalles.vue'
 
 export default {
   name:'Clients',
 
   components: {
-    ClienteComp
+    ClienteComp,
+    ButtonAnterior,
+    ClienteDetalles
   },
 
   methods:{

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-//Lazy loading todo menos home (only loads what you need when you need it)
+//Lazy loading todo menos home (only loads what you need when you need it, web faster)
 
 Vue.use(VueRouter)
 
@@ -32,6 +32,11 @@ const routes = [
     name: 'Botiga',
     component: () => import(/* webpackChunkName: "botiga" */ '../views/Botiga.vue')
   },
+  {
+    path:'/clientsdetails/:id',
+    name:'Details',
+    component: () => import(/* webpackChunkName: "details" */ '../views/ClientsDetails.vue')
+  }
 ]
 
 const router = new VueRouter({
