@@ -1,44 +1,73 @@
 
-/* <template>
-    <div>
-        <h1>Detalles</h1>
+ <template>
 
-         <h1>Cliente desde componente: {{ $route.params.Pid }} </h1>
+  <div style="width: 100%">
 
+    <div class="d-flex flex-column justify-content-start align-items-center">
+
+                <b-card class="sombra">
+                    <b-card-text class="d-flex flex-column align-items-center">
+                        <h5 class="mb-4">{{encontrarCliente.nomClient}}</h5>
+                            <div class="row w-100 py-2">
+                                <div class="col-6">
+                                    Email
+                                </div>
+                                <div class="col-6">
+                                    {{encontrarCliente.mailClient}}
+                                </div>
+                            </div>
+                            <div class="row w-100 py-2">
+                                <div class="col-6">
+                                    Telefon:
+                                </div>
+                                <div class="col-6">
+                                    {{encontrarCliente.telClient}}
+                                </div>
+                            </div>
+
+                    </b-card-text>
+                </b-card>
     </div>
+
+  </div>
+
 </template>
 
 <script>
 
+import {mapState, mapGetters} from 'vuex'
+
 export default {
     name:'ClienteDetalles',
 
-  data(){
-    return {
-        cliId: this.$route.params.Pid,
-        clientesArreglo: [
-        {
-            nomClient:"Carme",
-            mailClient:"carme@email.com",
-            telClient: 658111111,
-            idClient: 1
-        },
-        {
-            nomClient:"Rosa",
-            mailClient:"rosa@email.com",
-            telClient: 658222222,
-            idClient: 2
-        },
-        {
-            nomClient:"Anna",
-            mailClient:"anna@email.com",
-            telClient: 658333333,
-            idClient: 3
-        }
-      ]
-    }
+    data(){
+      return{
+            clienteId:this.$route.params.id
+      }
+    },
 
-  },
+    computed:{
+
+    ...mapState(['clientesArreglo']),
+    ...mapGetters(['getCliente']),
+
+    encontrarCliente(){
+            return this.$store.getters['getCliente'](this.clienteId)
+        },
+
+    }
 }
 
-</script> */
+</script>
+
+<style scoped>
+
+
+.sombra {
+    box-shadow: 6px 6px 5px 1px #e7e5e5;
+    margin-top: 2rem;
+    width: 30%;
+}
+
+
+</style>

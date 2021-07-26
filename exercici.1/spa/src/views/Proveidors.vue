@@ -4,7 +4,7 @@
 
       <b-container>
 
-      <h1 class="mt-4">Proveidors</h1>
+      <h1 class="mt-4 d-flex justify-content-center">Proveidors</h1>
       
       </b-container>
 

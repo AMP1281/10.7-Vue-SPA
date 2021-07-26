@@ -4,14 +4,9 @@
 
     <b-container>
 
-      <ButtonAnterior/>
 
-        
+      <h1 class="mt-4 d-flex justify-content-center">Clients</h1>
 
-      <h1 class="mt-2">Clients</h1>
-
-
-    
       <ClienteComp/>
 
 
@@ -23,7 +18,7 @@
 </template>
 
 <script>
-import ButtonAnterior from '@/components/ButtonAnterior.vue'
+
 import ClienteComp from '@/components/ClienteComp.vue'
 
 
@@ -32,7 +27,6 @@ export default {
 
   components: {
     ClienteComp,
-    ButtonAnterior,
 
   },
 
