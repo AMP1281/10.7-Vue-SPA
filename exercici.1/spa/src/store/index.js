@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    users:[],
     clientesArreglo: [
       {
         nomClient:"Carme Montserrat",
@@ -32,8 +34,17 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    SET_USERS(state, users){
+      state.users = users
+    }
   },
   actions: {
+    getUsers({ commit }) {
+      axios.get('http://jsonplaceholder.typicode.com/users')
+          .then(response => {
+              commit('SET_USERS', response.data)
+      })
+  }
   },
   modules: {
   }

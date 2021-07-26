@@ -4,13 +4,13 @@
 
         <b-navbar toggleable="lg" type="dark" variant="dark"> <!-- toggleable = responsive en md -->
 
-            <b-navbar-brand href="#" class="col-sm-3">IT Academy</b-navbar-brand>
+            <b-navbar-brand href="#" class="col-md-2 d-flex justify-content-center align-items-center">IT ACADEMY</b-navbar-brand>
 
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle> <!--Es el Sandwich button-->
 
                     <b-collapse id="nav-collapse" is-nav> <!--Dentro del sandwich en md (id)-->
 
-                        <b-navbar-nav class="col-sm-6 fs-5 w-100 d-flex flex-row justify-content-center align-items-center">
+                        <b-navbar-nav class="col-md-8 fs-5 w-100 d-flex flex-row justify-content-center align-items-center">
 
                             <b-nav-item class="mx-2 px-2" to="/" exact>Home</b-nav-item> <!--b-nav-item actua como router-link(router link es como a)-->
                             <b-nav-item class="mx-2 px-2" to="/Clients/:id">Clients</b-nav-item>
@@ -22,7 +22,7 @@
 
                     </b-collapse>
 
-                    <b-navbar-nav class="ml-auto col-sm-3">
+                    <b-navbar-nav class="ml-auto col-md-2">
 
                         <b-nav-form>
 
@@ -45,7 +45,7 @@
 
 <script>
 export default {
-    name: 'Navegacion'
+    name: 'TheNavigation'
 };
 </script>
 

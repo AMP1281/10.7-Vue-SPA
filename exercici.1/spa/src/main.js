@@ -6,6 +6,11 @@ import router from './router'
 //Vuex
 import store from './store'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
+
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Make BootstrapVue available throughout your project
