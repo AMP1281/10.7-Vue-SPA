@@ -10,14 +10,20 @@
 
 
                   <b-button-group size="sm" class="d-flex flex-row justify-content-center align-items-center">
-                    <b-button class="boton" variant="outline-info">Alimentació </b-button>
-                    <b-button class="boton" variant="outline-info">Congelats </b-button>
+                    <b-button @click="switchComponent('alimetacio')" class="boton" variant="outline-info">Alimentació </b-button>
+                    <b-button @click="switchComponent('congelats')" class="boton" variant="outline-info">Congelats </b-button>
                   </b-button-group>
     </b-container>
 
   </div>
 
 </template>
+
+<script>
+
+
+</script>
+
 
 <style scoped>
 
