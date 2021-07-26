@@ -7,19 +7,19 @@ export default new Vuex.Store({
   state: {
     clientesArreglo: [
       {
-        nomClient:"Carme",
+        nomClient:"Carme Montserrat",
         mailClient:"carme@email.com",
         telClient: 658111111,
         idClient: 1
       },
       {
-        nomClient:"Rosa",
+        nomClient:"Rosa Montserrat",
         mailClient:"rosa@email.com",
         telClient: 658222222,
         idClient: 2
       },
       {
-        nomClient:"Anna",
+        nomClient:"Anna Montserrat",
         mailClient:"anna@email.com",
         telClient: 658333333,
         idClient: 3

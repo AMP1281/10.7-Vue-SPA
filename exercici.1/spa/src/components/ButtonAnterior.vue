@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-button class="mt-3" @click="Anterior()">Enrere</b-button>
+        <b-button class="mt-4" @click="Anterior()">Enrere</b-button>
     </div>
 </template>
 
