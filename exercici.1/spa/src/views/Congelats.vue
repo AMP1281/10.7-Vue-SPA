@@ -7,3 +7,9 @@
   </div>
 
 </template>
+
+<script>
+export default {
+  name:'Congelats',
+}
+</script>

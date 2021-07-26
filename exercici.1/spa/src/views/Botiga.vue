@@ -10,9 +10,12 @@
 
 
                   <b-button-group size="sm" class="d-flex flex-row justify-content-center align-items-center">
-                    <b-button @click="switchComponent('alimetacio')" class="boton" variant="outline-info">Alimentació </b-button>
-                    <b-button @click="switchComponent('congelats')" class="boton" variant="outline-info">Congelats </b-button>
+                    <b-button @click="curr = true" class="boton" variant="outline-info">Alimentació </b-button>
+                    <b-button @click="curr = false" class="boton" variant="outline-info">Congelats </b-button>
                   </b-button-group>
+
+          <component v-bind:is="current"/>
+
     </b-container>
 
   </div>
@@ -21,6 +24,28 @@
 
 <script>
 
+const aliment = () => import ('../views/Alimentacio.vue')
+const congel = () => import ('../views/Congelats.vue')
+
+export default {
+  name:'Botiga',
+  data(){
+    return{
+      curr:''
+    }
+  },
+
+computed:{
+  current(){
+    if(this.curr == true) {
+      return aliment;
+    }
+    return congel;
+  }
+}
+}
+
+    
 
 </script>
 
