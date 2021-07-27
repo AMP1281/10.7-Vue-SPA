@@ -15,7 +15,7 @@ export default new Vuex.Store({
       return state.usuariosArreglo.find(usuario => usuario.id === id)
     },
     getPicture: (state) => (id) => {
-      return state.picturesArreglo.find(picture => picture.id === id)
+      return state.picturesArreglo.find(picture => picture.albumId === id)
     },
     getDuplicated: state =>{
       return state.picturesArreglo.filter((album, index, self) => index === self.findIndex((obj)=>(obj.albumId === album.albumId)))},
