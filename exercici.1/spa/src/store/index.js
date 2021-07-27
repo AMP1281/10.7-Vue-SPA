@@ -12,12 +12,15 @@ export default new Vuex.Store({
   },
   getters:{
     getCliente: (state) => (id) => {
-      return state.usuariosArreglo.find(client => client.id === id)
+      return state.usuariosArreglo.find(usuario => usuario.id === id)
     },
     getPicture: (state) => (id) => {
-      return state.usuariosArreglo.find(client => client.id === id)
+      return state.picturesArreglo.find(picture => picture.id === id)
     },
+    getDuplicated: state =>{
+      return state.picturesArreglo.filter((album, index, self) => index === self.findIndex((obj)=>(obj.albumId === album.albumId)))},
   },
+
   mutations: {
     SET_USERS(state, users){
        state.usuariosArreglo = users
@@ -25,6 +28,7 @@ export default new Vuex.Store({
     SET_PICTURES(state, pictures){
       state.picturesArreglo = pictures
     },
+
 
             /*llenarUsuarios(state,usuariosAccion){
                 state.usuariosArreglo = usuariosAccion //llena el array

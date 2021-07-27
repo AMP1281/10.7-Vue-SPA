@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path:'/clientsdetails/:id',
-    name:'CliDetails',
+    name:'Details',
     component: () => import(/* webpackChunkName: "detailsUsers" */ '../views/ClientsDetails.vue')
   },
   {
