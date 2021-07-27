@@ -14,7 +14,7 @@
 
                             <b-nav-item class="mx-2 px-2" to="/" exact>Home</b-nav-item> <!--b-nav-item actua como router-link(router link es como a)-->
                             <b-nav-item class="mx-2 px-2" to="/Users/:id">Users</b-nav-item>
-                            <b-nav-item class="mx-2 px-2" to="/Pictures">Pictures</b-nav-item>
+                            <b-nav-item class="mx-2 px-2" to="/Pictures/:id">Pictures</b-nav-item>
 
                         </b-navbar-nav>
 

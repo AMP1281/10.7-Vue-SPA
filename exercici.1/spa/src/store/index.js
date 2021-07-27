@@ -9,10 +9,12 @@ export default new Vuex.Store({
   state: {
     usuariosArreglo:[],
     picturesArreglo:[],
-    str:'',
   },
   getters:{
     getCliente: (state) => (id) => {
+      return state.usuariosArreglo.find(client => client.id === id)
+    },
+    getPicture: (state) => (id) => {
       return state.usuariosArreglo.find(client => client.id === id)
     },
   },
@@ -23,11 +25,7 @@ export default new Vuex.Store({
     SET_PICTURES(state, pictures){
       state.picturesArreglo = pictures
     },
-    changeKey(){
-      this.str = JSON.stringify(this.picturesArreglo);
-      this.str = this.str.replace(/"username":/g, "\"id\"header");
-      this.picturesArreglo = JSON.parse(this.str);
-    }
+
             /*llenarUsuarios(state,usuariosAccion){
                 state.usuariosArreglo = usuariosAccion //llena el array
             } */

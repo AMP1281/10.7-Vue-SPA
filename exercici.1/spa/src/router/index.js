@@ -19,13 +19,18 @@ const routes = [
   },
   {
     path:'/clientsdetails/:id',
-    name:'Details',
+    name:'CliDetails',
     component: () => import(/* webpackChunkName: "detailsUsers" */ '../views/ClientsDetails.vue')
   },
   {
-    path: '/pictures',//:hace la ruta dinamica
+    path: '/pictures/:id',//:hace la ruta dinamica
     name: 'Pictures',
     component: () => import(/* webpackChunkName: "pictures" */ '../views/Pictures.vue')
+  },
+  {
+    path:'/picturesdetails/:id',
+    name:'PicDetails',
+    component: () => import(/* webpackChunkName: "detailsPictures" */ '../views/PicturesDetails.vue')
   },
 
 ]

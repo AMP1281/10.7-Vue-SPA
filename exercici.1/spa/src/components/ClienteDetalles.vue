@@ -88,7 +88,7 @@ export default {
 
     computed:{
 
-    ...mapState(['clientesArreglo','usuariosArreglo']),
+    ...mapState(['usuariosArreglo']),
     ...mapGetters(['getCliente']),
 
     encontrarCliente(){
