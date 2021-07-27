@@ -1,51 +1,54 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    users:[],
-    clientesArreglo: [
-      {
-        nomClient:"Carme Montserrat",
-        mailClient:"carme@email.com",
-        telClient: 658111111,
-        idClient: 1
-      },
-      {
-        nomClient:"Rosa Montserrat",
-        mailClient:"rosa@email.com",
-        telClient: 658222222,
-        idClient: 2
-      },
-      {
-        nomClient:"Anna Montserrat",
-        mailClient:"anna@email.com",
-        telClient: 658333333,
-        idClient: 3
-      }
-      ]
+    usuariosArreglo:[],
+    picturesArreglo:[],
+    str:'',
   },
   getters:{
-    getCliente: (state) => (idClient) => {
-      return state.clientesArreglo.find(client => client.idClient === idClient)
+    getCliente: (state) => (id) => {
+      return state.usuariosArreglo.find(client => client.id === id)
     },
   },
   mutations: {
     SET_USERS(state, users){
-      state.users = users
+       state.usuariosArreglo = users
+     },
+    SET_PICTURES(state, pictures){
+      state.picturesArreglo = pictures
+    },
+    changeKey(){
+      this.str = JSON.stringify(this.picturesArreglo);
+      this.str = this.str.replace(/"username":/g, "\"id\"header");
+      this.picturesArreglo = JSON.parse(this.str);
     }
+            /*llenarUsuarios(state,usuariosAccion){
+                state.usuariosArreglo = usuariosAccion //llena el array
+            } */
   },
   actions: {
     getUsers({ commit }) {
       axios.get('http://jsonplaceholder.typicode.com/users')
           .then(response => {
               commit('SET_USERS', response.data)
-      })
-  }
+          })
+    },
+    getPictures({ commit }) {
+      axios.get('http://jsonplaceholder.typicode.com/photos')
+          .then(response => {
+              commit('SET_PICTURES', response.data)
+          })
+    } 
   },
-  modules: {
-  }
+          /*getUsers: async function({commit}){
+              const data = await fetch ('http://jsonplaceholder.typicode.com/users'); //llamamos a la api
+              const usuarios = await data.json();//guardamos en la const usuarios
+              commit('llenarUsuarios', usuarios)
+          }*/
 })

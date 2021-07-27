@@ -5,7 +5,7 @@
     <b-container>
 
 
-      <h1 class="mt-4 d-flex justify-content-center">Clients</h1>
+      <h1 class="mt-4 d-flex justify-content-center">Users</h1>
 
       <ClienteComp/>
 
@@ -23,7 +23,7 @@ import ClienteComp from '@/components/ClienteComp.vue'
 
 
 export default {
-  name:'Clients',
+  name:'Users',
 
   components: {
     ClienteComp,

@@ -13,30 +13,21 @@ const routes = [
     component: Home
   },
   {
-    path: '/clients/:id',//:hace la ruta dinamica
+    path: '/users/:id',//:hace la ruta dinamica
     name: 'Clients',
-    component: () => import(/* webpackChunkName: "clients" */ '../views/Clients.vue')
-  },
-  {
-    path: '/proveidors',
-    name: 'Proveidors',
-    component: () => import(/* webpackChunkName: "proveidors" */ '../views/Proveidors.vue')
-  },
-  {
-    path: '/magatzem',
-    name: 'Magatzem',
-    component: () => import(/* webpackChunkName: "magatzem" */ '../views/Magatzem.vue')
-  },
-  {
-    path: '/botiga',
-    name: 'Botiga',
-    component: () => import(/* webpackChunkName: "botiga" */ '../views/Botiga.vue')
+    component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue')
   },
   {
     path:'/clientsdetails/:id',
     name:'Details',
-    component: () => import(/* webpackChunkName: "details" */ '../views/ClientsDetails.vue')
-  }
+    component: () => import(/* webpackChunkName: "detailsUsers" */ '../views/ClientsDetails.vue')
+  },
+  {
+    path: '/pictures',//:hace la ruta dinamica
+    name: 'Pictures',
+    component: () => import(/* webpackChunkName: "pictures" */ '../views/Pictures.vue')
+  },
+
 ]
 
 const router = new VueRouter({
