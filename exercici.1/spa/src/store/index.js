@@ -10,10 +10,10 @@ export default new Vuex.Store({
     usuariosArreglo:[],
     picturesArreglo:[],
     numeroUsers: 0,
-    param:0
+    param:0,
+    test2:[]
   },
   
-  //Obtenemos una copia del state, no modifica
   getters:{
 
     //Devuelve usuario con id que indiquemos
@@ -30,7 +30,7 @@ export default new Vuex.Store({
   mutations: {
 
     SET_USERS(state, users){
-       state.usuariosArreglo = users
+       state.usuariosArreglo = users;
      },
 
     SET_PICTURES(state, pictures){
@@ -40,7 +40,14 @@ export default new Vuex.Store({
     aumentar(state, paramID){
       state.numeroUsers++ ;
       state.param = paramID
-    }
+    },
+
+    // newProperty: (state) => {
+    //   state.usuariosArreglo.forEach((item)=>{
+    //     Vue.set(item,'CLICKS', 0)
+    //   })
+    //}
+
 
             /*llenarUsuarios(state,usuariosAccion){
                 state.usuariosArreglo = usuariosAccion //llena el array
@@ -52,7 +59,8 @@ export default new Vuex.Store({
     getUsers({ commit }) {
       axios.get('http://jsonplaceholder.typicode.com/users')
           .then(response => {
-              commit('SET_USERS', response.data)
+              commit('SET_USERS', response.data);
+              commit('newProperty')
           })
     },
 
@@ -61,7 +69,8 @@ export default new Vuex.Store({
           .then(response => {
               commit('SET_PICTURES', response.data)
           })
-    } 
+    },
+
   },
 
           //Llamar con async-await

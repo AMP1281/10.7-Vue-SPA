@@ -55,7 +55,7 @@ export default {
 
         sumar(){
 
-            this.test2.push({this.param});
+            this.test2.push(this.param);
             console.log(this.test2);
 
 
