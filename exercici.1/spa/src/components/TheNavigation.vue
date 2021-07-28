@@ -25,10 +25,12 @@
                         <b-nav-form>
 
                             <b-input-group>
+
                                 <b-form-input type="search" size="sm"></b-form-input>
                                 <b-form-append>
                                     <div class="input-group-text" size="sm"><i class="fas fa-search"></i></div>
                                 </b-form-append>
+
                             </b-input-group>
 
                         </b-nav-form>
@@ -42,9 +44,13 @@
 </template>
 
 <script>
+
 export default {
+
     name: 'TheNavigation'
-};
+
+}
+
 </script>
 
 <style scoped>
@@ -54,6 +60,7 @@ export default {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
 .input-group-text{
     border-left: none !important;
     border-top-left-radius: 0px;

@@ -8,16 +8,25 @@
               v-for="item in usuariosArreglo" :key="item.id">
 
                   <div class="card text-center w-100">
+
                     <h5 class="card-header py-4">
-                      {{item.name}}</h5>
+                      {{ item.name }}</h5>
 
                     <div class="card-body py-5">
 
                       <p class="card-text">
+
                             <router-link :to="{name:'Details',params:{id:item.id}}">
-                            <b-button>Detalls</b-button>
+                            <!-- <b-button @click="aumentar(item.id)"> Detalls</b-button> -->
+                            <ButtonAumentar/>
+
                             </router-link>
-                        </p>
+
+                            {{numeroUsers}}
+                            {{param}}
+
+                      </p>
+
                     </div>
 
                   </div>
@@ -27,9 +36,12 @@
           </ul>
 
     </div>
+
 </template>
 
 <script>
+
+import ButtonAumentar from '@/components/ButtonAumentar.vue'
 
 import {mapState, mapActions} from 'vuex'
 
@@ -37,20 +49,24 @@ export default {
 
     name:'ClienteComp',
 
+    components: {
+        ButtonAumentar
+    },
+
     methods:{
         ...mapActions(['getUsers']),
-        mostrarDetall(){
-            this.$router.push({name:'ClienteDetalles'})
-        },
     },
 
     computed:{
-        ...mapState(['usuariosArreglo']),
+        ...mapState(['usuariosArreglo', 'numeroUsers','param']),
+
     },
 
+    //llamamos a la action q tenemos en store y trae los usuarios
     mounted(){
-        this.$store.dispatch('getUsers'); //llamamos a la action q tenemos en store y trae los usuarios
+        this.$store.dispatch('getUsers');
     }
+
 }
 
 </script>

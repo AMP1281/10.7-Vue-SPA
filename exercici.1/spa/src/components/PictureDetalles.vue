@@ -5,72 +5,59 @@
 
             <ul class="row list-unstyled">
 
-              <li class="col-md-4 mt-4 d-flex align-items-stretch justify-content-center" 
+              <li class="col-md-3 mt-4 d-flex align-items-stretch justify-content-center" 
               v-for="item in filtrar" :key="item.id">
 
-                  <div class="card text-center w-100 h100">
-                        <h5 class="card-header py-4 h-50">
-                                {{item.id}}</h5>
+                  <div class="card text-center">
 
-                        <div class="card-body py-5 h-50">
+                       <img :src="item.url" :alt="item.title" class="card-img-top">
 
-                                <p class="card-text">
+                        <div class="card-body">
 
-                                </p>
+                                <h5 class="card-title">{{ item.title }}</h5>
+
                         </div>
 
                   </div>
 
               </li>
 
-          </ul>
+            </ul>
 
- 
-
-
-</div>
+  </div>
 
 </template>
 
 <script>
 
-import {mapState, mapGetters} from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
+
     name:'PictureDetalles',
 
     data(){
-      return{
+        return{
             albumId:this.$route.params.id
-      }
+        }
     },
 
     computed:{
 
-    ...mapState(['picturesArreglo']),
-    ...mapGetters(['getPicture']),
+        ...mapState(['picturesArreglo']),
 
-    encontrarImagen(){
-            return this.$store.getters['getPicture'](this.albumId)
-        },
-    
-    filtrar(){
-        return this.picturesArreglo.filter(x => x.albumId == this.albumId)
-    }
+        //Filtra en picturesArreglo los objetos con propiedad albumId = al albumId q pasamos por url. Luego muestro en template las imagenes solo de esos objetos filtrados.
+        filtrar(){
+            return this.picturesArreglo.filter(x => x.albumId == this.albumId)
+        }
 
     }
+
 }
 
 </script>
 
 <style scoped>
-
-
-.sombra {
-    box-shadow: 6px 6px 5px 1px #e7e5e5;
-    margin-top: 2rem;
-    width: 40%;
-}
 
 
 </style>

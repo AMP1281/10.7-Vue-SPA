@@ -8,8 +8,9 @@
               v-for="item in getDuplicated" :key="item.id">
 
                   <div class="card text-center w-100 h100">
+
                         <h5 class="card-header py-4 h-50">
-                                Album: {{item.albumId}}</h5>
+                                Album: {{ item.albumId }}</h5>
 
                         <div class="card-body py-5 h-50">
 
@@ -27,11 +28,12 @@
           </ul>
 
     </div>
+
 </template>
 
 <script>
 
-import {mapState, mapActions, mapGetters} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
 
@@ -42,12 +44,12 @@ export default {
     },
 
     computed:{
-        ...mapState(['picturesArreglo']),
+
         ...mapGetters(['getDuplicated']),
     },
 
     mounted(){
-        this.$store.dispatch('getPictures'); //llamamos a la action q tenemos en store y trae los usuarios
+        this.$store.dispatch('getPictures');
     },
 
 }

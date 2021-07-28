@@ -66,7 +66,9 @@
                             </div>
 
                     </b-card-text>
+
                 </b-card>
+
     </div>
 
   </div>
@@ -78,36 +80,38 @@
 import {mapState, mapGetters} from 'vuex'
 
 export default {
+
     name:'ClienteDetalles',
 
     data(){
-      return{
+        //id que paso por url = id
+        return{
             id:this.$route.params.id
-      }
+        }
     },
 
     computed:{
 
-    ...mapState(['usuariosArreglo']),
-    ...mapGetters(['getCliente']),
+        ...mapState(['usuariosArreglo']),
+        ...mapGetters(['getCliente']),
 
-    encontrarCliente(){
+        //Con el getter de store pido q dentro de usuariosArreglo encuentre el usuario con id "this.id" que viene del url. Luego muestro los datos del usario en el template {{ encontrarCliente. dato }}
+        encontrarCliente(){
             return this.$store.getters['getCliente'](this.id)
         },
 
     }
+
 }
 
 </script>
 
 <style scoped>
 
-
 .sombra {
     box-shadow: 6px 6px 5px 1px #e7e5e5;
     margin-top: 2rem;
     width: 40%;
 }
-
 
 </style>
