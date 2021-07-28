@@ -17,13 +17,15 @@
                       <p class="card-text">
 
                             <router-link :to="{name:'Details',params:{id:item.id}}">
-                            <!-- <b-button @click="aumentar(item.id)"> Detalls</b-button> -->
-                            <ButtonAumentar/>
-
+                            <b-button @click="aumentar(item.id);sumar()"> Detalls</b-button>
+                            
                             </router-link>
-
                             {{numeroUsers}}
                             {{param}}
+
+                            {{asignarClick}}
+
+                            {{}}
 
                       </p>
 
@@ -41,24 +43,38 @@
 
 <script>
 
-import ButtonAumentar from '@/components/ButtonAumentar.vue'
-
-import {mapState, mapActions} from 'vuex'
+import {mapState, mapActions, mapMutations} from 'vuex'
 
 export default {
 
     name:'ClienteComp',
 
-    components: {
-        ButtonAumentar
-    },
-
     methods:{
         ...mapActions(['getUsers']),
+        ...mapMutations(['aumentar','newProperty']),
+
+        sumar(){
+
+            this.test2.push({this.param});
+            console.log(this.test2);
+
+
+
+            // this.test[this.param] = this.test[this.param];
+         
+            // console.log(this.test);
+
+            //  return this.asignarClick.CLICKS += 1;
+        }
+
     },
 
     computed:{
-        ...mapState(['usuariosArreglo', 'numeroUsers','param']),
+        ...mapState(['usuariosArreglo', 'numeroUsers','param','test','test2']),
+
+        asignarClick(){
+            return this.$store.getters['getCliente'](this.param)
+        },
 
     },
 
@@ -66,6 +82,7 @@ export default {
     mounted(){
         this.$store.dispatch('getUsers');
     }
+
 
 }
 
