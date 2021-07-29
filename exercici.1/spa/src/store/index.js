@@ -9,9 +9,12 @@ export default new Vuex.Store({
   state: {
     usuariosArreglo:[],
     picturesArreglo:[],
-    numeroUsers: 0,
-    param:0,
-    test2:[]
+    paramUsu:0,//Nombre último click usuario
+    clickUsuarios:[],//Acumula nombres de los clicks
+    paramPic:'',
+    clickPic:[],
+    inputBuscador:'',
+    buscarNombre:''
   },
   
   getters:{
@@ -24,6 +27,14 @@ export default new Vuex.Store({
     //Devuelve un array sin albumId duplicado
     getDuplicated: state => {
       return state.picturesArreglo.filter((album, index, self) => index === self.findIndex((obj)=>(obj.albumId === album.albumId)))},
+    
+    //Encuentra por nombre
+    getUsuName:(state)=>(name)=> {
+      return state.usuariosArreglo.filter(x=>x.name.toLowerCase().indexOf(name.toLowerCase())>-1)
+    },
+    buscarNombre:(state)=>{
+      return state.getters.getUsuName(state.inputBuscador);
+    },
 
   },
 
@@ -38,16 +49,32 @@ export default new Vuex.Store({
     },
 
     aumentar(state, paramID){
-      state.numeroUsers++ ;
-      state.param = paramID
+      state.paramUsu = paramID //param tiene el nombre del último click
     },
 
-    // newProperty: (state) => {
-    //   state.usuariosArreglo.forEach((item)=>{
-    //     Vue.set(item,'CLICKS', 0)
-    //   })
-    //}
+    aumentarPic(state, paramPicID){
+      state.paramPic = paramPicID 
+    },
 
+    SET_BUSCADOR(state,param){
+      state.inputBuscador = param
+    },
+
+    buscarNombre(state){
+      return state.getters.getUsuName(state.inputBuscador);
+    },
+    
+    resultados(state){
+      if(state.inputBuscador === ""){
+          return state.usuariosArreglo
+      }
+      if(state.inputBuscador.length>2 && state.inputBuscador!== ""){
+          return state.buscarNombre
+      }
+      else{
+          return false
+      }
+  }
 
             /*llenarUsuarios(state,usuariosAccion){
                 state.usuariosArreglo = usuariosAccion //llena el array
@@ -60,7 +87,6 @@ export default new Vuex.Store({
       axios.get('http://jsonplaceholder.typicode.com/users')
           .then(response => {
               commit('SET_USERS', response.data);
-              commit('newProperty')
           })
     },
 
