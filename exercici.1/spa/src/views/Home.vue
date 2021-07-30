@@ -2,13 +2,15 @@
 
     <div>
 
-      <b-container>
+      <b-container class="animate__animated animate__fadeIn">
 
-      <h1 class="mt-4 d-flex justify-content-center">
+        <h1 class="mt-4 d-flex justify-content-center">
 
-        Home
+          Home
 
-      </h1>
+        </h1>
+
+          <HomeComponente/>
 
       </b-container>
 
@@ -17,5 +19,17 @@
 </template>
 
 <script>
+
+import HomeComponente from '@/components/HomeComponente.vue'
+
+export default {
+
+    components: {
+
+      HomeComponente
+
+  },
+
+}
 
 </script>
