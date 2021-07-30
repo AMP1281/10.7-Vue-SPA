@@ -4,13 +4,13 @@
 
         <b-navbar toggleable="lg" type="dark" variant="dark"> <!-- toggleable = responsive en md -->
 
-            <b-navbar-brand href="#" class="col-md-2 d-flex justify-content-center align-items-center">IT ACADEMY</b-navbar-brand>
+            <b-navbar-brand href="#" class="col-md-3 d-flex justify-content-center align-items-center w-25">IT ACADEMY</b-navbar-brand>
 
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle> <!--Es el Sandwich button-->
 
                     <b-collapse id="nav-collapse" is-nav> <!--Dentro del sandwich en md (id)-->
 
-                        <b-navbar-nav class="col-md-8 fs-5 w-100 d-flex flex-row justify-content-center align-items-center">
+                        <b-navbar-nav class="col-md-6 fs-5 w-100 d-flex flex-row justify-content-center align-items-center">
 
                             <b-nav-item class="mx-2 px-2" to="/" exact>Home</b-nav-item> <!--b-nav-item actua como router-link(router link es como a)-->
                             <b-nav-item class="mx-2 px-2" to="/Users/:id">Users</b-nav-item>
@@ -20,16 +20,13 @@
 
                     </b-collapse>
 
-                    <b-navbar-nav class="ml-auto col-md-2">
+                    <b-navbar-nav class="ml-auto col-md-3 d-flex w-25 flex-row justify-content-center align-items-center">
 
                         <b-nav-form>
 
-                            <b-input-group>
+                            <b-input-group class="d-flex flex-row justify-content-center align-items-center">
 
-                                <b-form-input type="search" size="sm"></b-form-input>
-                                <b-form-append>
-                                    <div class="input-group-text" size="sm"><i class="fas fa-search"></i></div>
-                                </b-form-append>
+                                <Autocomplete/>
 
                             </b-input-group>
 
@@ -45,9 +42,15 @@
 
 <script>
 
+import Autocomplete from './Autcomplete.vue'
+
 export default {
 
-    name: 'TheNavigation'
+    name: 'TheNavigation',
+
+    components: {
+      Autocomplete,
+    },
 
 }
 
@@ -55,16 +58,6 @@ export default {
 
 <style scoped>
 
-.b-form-input{
-    border-right: none !important;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
 
-.input-group-text{
-    border-left: none !important;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
 
 </style>

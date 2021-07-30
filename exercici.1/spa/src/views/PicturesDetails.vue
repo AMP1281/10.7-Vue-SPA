@@ -2,7 +2,7 @@
 
     <div>
 
-        <b-container>
+        <b-container class="animate__animated animate__fadeIn">
 
             <div class="d-flex flex-column justify-content-start align-items-center">
 
@@ -19,15 +19,19 @@
 </template>
 
 <script>
+
 import PictureDetalles from '@/components/PictureDetalles.vue'
 import ButtonAnterior from '@/components/ButtonAnterior.vue'
 
-
 export default{
+
    components: {
-    ButtonAnterior,
-    PictureDetalles
+
+      ButtonAnterior,
+      PictureDetalles
+
   },
+
 }
 
 </script>

@@ -2,7 +2,7 @@
 
   <div>
 
-    <b-container>
+    <b-container class="animate__animated animate__fadeIn">
 
         <div class="mt-2 d-flex justify-content-center">
 
@@ -29,21 +29,11 @@ export default {
   name:'Pictures',
 
   components: {
+
     PictureComp,
     ButtonAnterior
+
   },
 
-  methods:{
-
-    home(){
-      this.$router.push('/')
-    },
-    anterior(){
-      this.$router.go(-1)
-    },
-    siguiente(){
-      this.$router.go(1)
-    }
-  },
 }
 </script>

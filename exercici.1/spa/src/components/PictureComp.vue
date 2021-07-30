@@ -16,7 +16,7 @@
 
                                 <p class="card-text">
                                     <router-link :to="{name:'PicDetails',params:{id:item.albumId}}">
-                                    <b-button>Detalls</b-button>
+                                    <b-button @click="aumentarPic(item.albumId);pushPic()"> Detalls</b-button>
                                     </router-link>
                                 </p>
                         </div>
@@ -33,19 +33,26 @@
 
 <script>
 
-import {mapActions, mapGetters} from 'vuex'
+import {mapState, mapActions, mapGetters, mapMutations} from 'vuex'
 
 export default {
 
     name:'PictureComp',
 
     methods:{
+
         ...mapActions(['getPictures']),
+        ...mapMutations(['aumentarPic']),
+
+        pushPic(){
+            this.clickPic.push(this.paramPic);
+        },
+
     },
 
     computed:{
-
         ...mapGetters(['getDuplicated']),
+        ...mapState(['picturesArreglo','paramPic','clickPic'])
     },
 
     mounted(){

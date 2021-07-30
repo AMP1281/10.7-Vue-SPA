@@ -2,7 +2,7 @@
 
     <div>
 
-        <b-container>
+        <b-container class="animate__animated animate__fadeIn">
 
             <div class="d-flex flex-column justify-content-start align-items-center">
 

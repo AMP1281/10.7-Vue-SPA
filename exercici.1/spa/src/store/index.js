@@ -7,14 +7,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
   state: {
+
     usuariosArreglo:[],
     picturesArreglo:[],
     paramUsu:0,//Nombre último click usuario
-    clickUsuarios:[],//Acumula nombres de los clicks
+    clickUsuarios:[],//Acumula todos los nombres de los clicks
     paramPic:'',
     clickPic:[],
     inputBuscador:'',
-    buscarNombre:''
+    buscarNombre:'',
+    soloNombre:''
+
   },
   
   getters:{
@@ -32,9 +35,34 @@ export default new Vuex.Store({
     getUsuName:(state)=>(name)=> {
       return state.usuariosArreglo.filter(x=>x.name.toLowerCase().indexOf(name.toLowerCase())>-1)
     },
-    buscarNombre:(state)=>{
-      return state.getters.getUsuName(state.inputBuscador);
+
+    //Encuentra concretamente por el nombre del inputBuscador
+    buscarNombre:(state, getters) => {
+      return getters.getUsuName(state.inputBuscador);
     },
+
+    //Es la lógica del v-for Cliente Detalles 
+    resultados(state,getters){
+      if(state.inputBuscador === ""){
+          return state.usuariosArreglo
+      }
+      if(state.inputBuscador.length>1 && state.inputBuscador!== ""){
+          return getters.buscarNombre
+      }
+      else{
+          return false
+      }
+    },
+
+    //Es la lógica del v-for Autocomplete
+    resultAutocomplete(state,getters){
+      if(state.inputBuscador.length>1 && state.inputBuscador!== ""){
+          return getters.buscarNombre
+      }
+      else{
+        return false
+      }
+    }
 
   },
 
@@ -49,7 +77,7 @@ export default new Vuex.Store({
     },
 
     aumentar(state, paramID){
-      state.paramUsu = paramID //param tiene el nombre del último click
+      state.paramUsu = paramID //param tiene el nombre del último click usu
     },
 
     aumentarPic(state, paramPicID){
@@ -60,25 +88,10 @@ export default new Vuex.Store({
       state.inputBuscador = param
     },
 
-    buscarNombre(state){
-      return state.getters.getUsuName(state.inputBuscador);
-    },
-    
-    resultados(state){
-      if(state.inputBuscador === ""){
-          return state.usuariosArreglo
-      }
-      if(state.inputBuscador.length>2 && state.inputBuscador!== ""){
-          return state.buscarNombre
-      }
-      else{
-          return false
-      }
-  }
-
             /*llenarUsuarios(state,usuariosAccion){
                 state.usuariosArreglo = usuariosAccion //llena el array
             } */
+
   },
 
   actions: {
@@ -88,12 +101,18 @@ export default new Vuex.Store({
           .then(response => {
               commit('SET_USERS', response.data);
           })
+          .catch(function(error){
+            alert(error);
+          })
     },
 
     getPictures({ commit }) {
       axios.get('http://jsonplaceholder.typicode.com/photos')
           .then(response => {
               commit('SET_PICTURES', response.data)
+          })
+          .catch(function(error){
+            alert(error);
           })
     },
 
